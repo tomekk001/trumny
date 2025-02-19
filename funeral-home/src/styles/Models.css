@@ -1,0 +1,172 @@
+/* Styl dla sekcji kontaktu */
+.contact {
+  background-color: #f4f4f4;
+}
+
+/* Tło nagłówka z obrazkiem */
+.navbar-background {
+  background-image: url('/public/image7.jpg'); /* Sprawdź poprawność ścieżki */
+  background-size: cover; /* Ustawienie rozmiaru tła na pokrywający */
+  background-position: center; /* Wyśrodkowanie tła */
+  background-repeat: no-repeat; /* Zapobiegaj powtarzaniu obrazu */
+  width: 100%;
+  height: 30vh; /* Możesz dostosować wysokość */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Przyciemnienie tła dla lepszej widoczności tekstu */
+.navbar-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Warstwa przyciemnienia */
+}
+
+/* Nawigacja */
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Wyśrodkuj przyciski */
+  padding: 0 20px;
+  height: 80px; /* Zwiększ wysokość */
+  position: relative;
+}
+
+.navbar-content::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff; /* Pasek pod przyciskami */
+}
+
+.logo {
+  height: 50px;
+  margin-right: auto; /* Przesuń logo do lewej */
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Wyśrodkuj przyciski */
+  align-items: center;
+  flex-grow: 1; /* Upewnij się, że ul zajmuje całą szerokość */
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar button {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.navbar button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.contact-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+form input,
+form textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form button {
+  background-color: rgb(126, 165, 34);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: rgb(109, 145, 27);
+}
+
+.location {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.location h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #252525;
+  color: #fff;
+}
+
+.footer p {
+  margin: 5px 0;
+}
