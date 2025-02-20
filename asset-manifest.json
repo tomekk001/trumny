@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/tomekk001/trumny/static/css/main.6c2b5c81.css",
+    "main.js": "/tomekk001/trumny/static/js/main.6e54e35a.js",
+    "static/media/image7.jpg": "/tomekk001/trumny/static/media/image7.d10a436b93ff09fdb36e.jpg",
+    "index.html": "/tomekk001/trumny/index.html",
+    "main.6c2b5c81.css.map": "/tomekk001/trumny/static/css/main.6c2b5c81.css.map",
+    "main.6e54e35a.js.map": "/tomekk001/trumny/static/js/main.6e54e35a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c2b5c81.css",
+    "static/js/main.6e54e35a.js"
+  ]
+}
