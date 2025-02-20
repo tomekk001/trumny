@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
+import { motion } from "framer-motion";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../styles/MainPage.css";
 
@@ -37,8 +38,18 @@ const MainPage = () => {
     navigate("/contact");
   };
 
+  const pageVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  };
+
   return (
-    <section className="main-page">
+    <motion.section
+      className="main-page"
+      variants={pageVariants} // Ustawiamy warianty animacji
+      initial="hidden" // Początkowy stan
+      animate="visible" // Stan końcowy po załadowaniu strony
+    >
       <nav className="navbar">
         <div className="navbar-content">
           <img src="/logo.webp" alt="Logo" className="logo" />
@@ -288,7 +299,7 @@ const MainPage = () => {
         <p>Telefon: +48 123 456 789</p>
         <p>Email: kontakt@kasprzyktrumny.pl</p>
       </footer>
-    </section>
+    </motion.section>
   );
 };
 

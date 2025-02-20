@@ -1,10 +1,49 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/About.css";
+import "../styles/Models.css";
 
 const Models = () => {
   const navigate = useNavigate();
-  const [isHovered, setIsHovered] = useState(false);
+
+  // Lista modeli trumien
+  const models = [
+    {
+      img: "/trumnaamerykanska.webp",
+      title: "Trumna Amerykańska",
+      link: "/trumna-amerykanska",
+    },
+    {
+      img: "/trumnafrancuska.webp",
+      title: "Trumna Francuska",
+      link: "/trumna-francuska",
+    },
+    { img: "/trumnaiglo.webp", title: "Trumna Iglo", link: "/trumna-iglo" },
+    {
+      img: "/trumnalamana.webp",
+      title: "Trumna Łamana",
+      link: "/trumna-lamana",
+    },
+    {
+      img: "/trumnanakladana.webp",
+      title: "Trumna Nakładana",
+      link: "/trumna-nakladana",
+    },
+    {
+      img: "/trumnaprosta1.webp",
+      title: "Trumna Prosta",
+      link: "/trumna-prosta",
+    },
+    {
+      img: "/trumnasamolot.webp",
+      title: "Trumna Samolot",
+      link: "/trumna-samolot",
+    },
+    {
+      img: "/trumnaszostka.webp",
+      title: "Trumna Szóstka",
+      link: "/trumna-szostka",
+    },
+  ];
 
   return (
     <section className="models">
@@ -19,71 +58,35 @@ const Models = () => {
               <li>
                 <button onClick={() => navigate("/about")}>O Nas</button>
               </li>
-              <li
-                className="dropdown"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                <button
-                  className="dropdown-btn"
-                  onClick={(e) => {
-                    e.stopPropagation(); // Zapobiega zamykaniu dropdownu
-                    navigate("/models");
-                    setIsHovered(false); // Ukryj menu po kliknięciu
-                  }}
-                >
-                  Usługi
-                </button>
-                {isHovered && (
-                  <ul
-                    className="dropdown-content"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <li>
-                      <button onClick={() => navigate("/trumny-proste")}>
-                        Trumny Proste
-                      </button>
-                    </li>
-                    <li>
-                      <button onClick={() => navigate("/trumny-francuskie")}>
-                        Trumny Francuskie
-                      </button>
-                    </li>
-                    <li>
-                      <button onClick={() => navigate("/trumny-nakladane")}>
-                        Trumny Nakładane
-                      </button>
-                    </li>
-                    <li>
-                      <button onClick={() => navigate("/trumny-samolot")}>
-                        Trumny Samolot
-                      </button>
-                    </li>
-                    <li>
-                      <button onClick={() => navigate("/trumny-Szóstka")}>
-                        Trumny Amerykańskie
-                      </button>
-                    </li>
-                    <li>
-                      <button onClick={() => navigate("/trumny-Iglo")}>
-                        Trumny Łamane NEW
-                      </button>
-                    </li>
-                  </ul>
-                )}
+              <li>
+                <button onClick={() => navigate("/models")}>Usługi</button>
               </li>
-
               <li>
                 <button onClick={() => navigate("/contact")}>Kontakt</button>
               </li>
             </ul>
           </div>
         </nav>
-        <div className="about-text">
+        <div className="header-text">
           <h1>Modele trumien</h1>
         </div>
       </div>
-      <footer className="footer" id="contact">
+
+      {/* Galeria modeli w dwóch rzędach po cztery */}
+      <div className="models-container">
+        {models.map((model, index) => (
+          <div
+            key={index}
+            className="model"
+            onClick={() => navigate(model.link)}
+          >
+            <img src={model.img} alt={model.title} />
+            <h2>{model.title}</h2>
+          </div>
+        ))}
+      </div>
+
+      <footer className="footer">
         <p>
           &copy; 2025 Zakład Pogrzebowy Kasprzyk. Wszelkie prawa zastrzeżone.
         </p>
