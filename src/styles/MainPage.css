@@ -58,6 +58,7 @@
 
 .navbar li {
   margin: 0 15px;
+  position: relative; /* Dodaj pozycjonowanie dla rozwijanego menu */
 }
 
 .navbar button {
@@ -74,6 +75,66 @@
 
 .navbar button:hover {
   background: rgba(255, 255, 255, 0.4); /* Zwiększenie przezroczystości przy najechaniu */
+}
+
+/* Lista rozwijana */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Pojawia się równo pod przyciskiem */
+  left: 0;
+  background-color: white;
+  min-width: 200px;
+  max-width: 250px; /* Ograniczenie szerokości */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  text-align: left;
+}
+
+/* Poprawka widoczności po najechaniu */
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Styl dla listy */
+.dropdown-content li {
+  width: 100%;
+  padding: 0;
+}
+
+/* Styl dla przycisków w liście */
+.dropdown-content button {
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: none;
+  color: black; /* Upewnienie się, że tekst jest widoczny */
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: white; /* Naprawienie widoczności */
+}
+
+/* Efekt hover dla przycisków */
+.dropdown-content button:hover {
+  background-color: #f5f5f5;
+}
+
+/* Zapobieganie przesunięciu w prawo */
+.dropdown-content {
+  left: 0;
+  right: auto;
 }
 
 .carousel .slide img {
@@ -218,8 +279,6 @@
   border-radius: 10px;
 }
 
-
-
 .footer {
   text-align: center;
   margin-top: 40px;
@@ -232,75 +291,58 @@
   margin: 5px 0;
 }
 
-/* Podstawowy styl przycisków */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-/* Styl przycisków */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* Kontener dla listy rozwijanej */
+/* Stylizacja kontenera dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Ukrycie listy rozwijanej domyślnie */
+/* Styl dla przycisku */
+.dropdown-btn {
+  background: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Lista rozwijana */
 .dropdown-content {
-  display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  top: 100%; /* Pojawia się równo pod przyciskiem */
+  left: 0;
+  background-color: rgb(27, 8, 8);
+  min-width: 200px;
+  max-width: 250px; /* Ograniczenie szerokości */
   list-style-type: none;
   padding: 0;
   margin: 0;
-  top: 60px;
+  display: none; /* Ukrywa listę domyślnie */
 }
 
-/* Styl dla przycisków w rozwijanej liście */
-.dropdown-content li button {
-  width: 100%;
-  padding: 12px 16px;
-  text-align: left;
-  background-color: #f1f1f1;
-  color: black;
-  border: none;
-}
-
-/* Zmiana koloru przycisków w rozwijanej liście po najechaniu */
-.dropdown-content li button:hover {
-  background-color: #ddd;
-}
-
-/* Pokaż listę rozwijaną po najechaniu */
+/* Widoczność listy po najechaniu */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Styl dla przycisków w liście */
+.dropdown-content button {
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: none;
+  color: black; /* Tekst na białym tle */
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
 }
+
+/* Efekt hover dla przycisków */
+.dropdown-content button:hover {
+  background-color: #f5f5f5;
+}
+
 
 .models-container {
   display: grid;
@@ -329,3 +371,14 @@ button {
 .model:nth-child(6) { animation-delay: 1.2s; }
 .model:nth-child(7) { animation-delay: 1.4s; }
 .model:nth-child(8) { animation-delay: 1.6s; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

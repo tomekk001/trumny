@@ -7,7 +7,7 @@ import "../styles/MainPage.css";
 
 const MainPage = () => {
   const navigate = useNavigate();
-  const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,56 +62,42 @@ const MainPage = () => {
             </li>
             <li
               className="dropdown"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+              onMouseEnter={() => setIsOpen(true)}
+              onMouseLeave={() => setIsOpen(false)}
             >
-              <button
-                className="dropdown-btn"
-                onClick={(e) => {
-                  e.stopPropagation(); // Zapobiega zamykaniu dropdownu
-                  navigate("/models");
-                  setIsHovered(false); // Ukryj menu po kliknięciu
-                }}
-              >
-                Usługi
-              </button>
-              {isHovered && (
-                <ul
-                  className="dropdown-content"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <li>
-                    <button onClick={() => navigate("/trumny-proste")}>
-                      Trumny Proste
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => navigate("/trumny-francuskie")}>
-                      Trumny Francuskie
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => navigate("/trumny-nakladane")}>
-                      Trumny Nakładane
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => navigate("/trumny-samolot")}>
-                      Trumny Samolot
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => navigate("/trumny-Szóstka")}>
-                      Trumny Amerykańskie
-                    </button>
-                  </li>
-                  <li>
-                    <button onClick={() => navigate("/trumny-Iglo")}>
-                      Trumny Łamane NEW
-                    </button>
-                  </li>
-                </ul>
-              )}
+              <button className="dropdown-btn">Usługi</button>
+              <ul className={`dropdown-content ${isOpen ? "show" : ""}`}>
+                <li>
+                  <button onClick={() => navigate("/trumny-proste")}>
+                    Trumny Proste
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigate("/trumny-francuskie")}>
+                    Trumny Francuskie
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigate("/trumny-nakladane")}>
+                    Trumny Nakładane
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigate("/trumny-samolot")}>
+                    Trumny Samolot
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigate("/trumny-Szóstka")}>
+                    Trumny Amerykańskie
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigate("/trumny-Iglo")}>
+                    Trumny Łamane NEW
+                  </button>
+                </li>
+              </ul>
             </li>
             <li>
               <button onClick={() => navigate("/contact")}>Kontakt</button>
